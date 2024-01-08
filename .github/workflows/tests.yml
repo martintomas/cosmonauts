@@ -1,0 +1,27 @@
+name: Tests
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    name: Run backend tests
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout️
+        uses: actions/checkout@v4
+
+      - name: Install ruby + gems
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Setup database
+        run: |
+          bundle exec rails db:create
+          bundler exec rails db:schema:load
+
+      - name: Run tests
+        run: bundle exec rspec spec --fail-fast
