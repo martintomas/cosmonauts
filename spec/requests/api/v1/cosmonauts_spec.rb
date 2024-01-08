@@ -183,4 +183,62 @@ RSpec.describe "API V1 Cosmonauts", type: :request do
       end
     end
   end
+
+  path "/api/v1/cosmonauts/export" do
+    get "Exports cosmonauts" do
+      tags "Cosmonauts"
+      consumes "application/json"
+      produces "application/xml"
+
+      let!(:cosmonauts) { create_list :cosmonaut, 15 }
+
+      response "200", :success do
+        run_test!
+
+        it "returns xml file" do
+          expect(response.headers["Content-Type"]).to eq("application/xml")
+          expect(response.headers["Content-Disposition"]).to eq("attachment; filename=cosmonauts.xml")
+        end
+
+        it "contains correct data" do
+          xml = Nokogiri::XML(response.body)
+          expect(xml.xpath("//cosmonauts//id").map(&:text)).to match_array(cosmonauts.map(&:id).map(&:to_s))
+          expect(xml.xpath("//cosmonauts//first_name").map(&:text)).to match_array(cosmonauts.map(&:first_name))
+          expect(xml.xpath("//cosmonauts//last_name").map(&:text)).to match_array(cosmonauts.map(&:last_name))
+        end
+      end
+    end
+  end
+
+  path "/api/v1/cosmonauts/import" do
+    post "Imports cosmonauts" do
+      tags "Cosmonauts"
+      consumes 'multipart/form-data'
+      produces 'application/json'
+      parameter name: :cosmonauts, in: :formData, schema: {
+        type: :object,
+        properties: { file: { type: :file } },
+        required: ["file"]
+      }
+
+      let(:cosmonauts) { { file: fixture_file_upload("cosmonauts.xml") } }
+
+      response "200", :success do
+        run_test!
+
+        it "imports cosmonauts" do
+          expect(Cosmonaut.count).to eq(20)
+        end
+
+        it "imports all attributes" do
+          expect(Cosmonaut.find(1).attributes.symbolize_keys).to include(
+            first_name: "Dawna",
+            last_name: "Block",
+            physical_condition: "Average",
+            mental_endurance: "Average"
+          )
+        end
+      end
+    end
+  end
 end

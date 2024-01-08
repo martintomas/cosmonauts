@@ -6,8 +6,12 @@ Rails.application.routes.draw do
 
   namespace :api, format: "json" do
     namespace :v1 do
-      # enums
-      resources :cosmonauts
+      resources :cosmonauts do
+        collection do
+          get :export
+          post :import
+        end
+      end
     end
   end
 end

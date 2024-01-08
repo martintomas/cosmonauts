@@ -322,6 +322,33 @@ paths:
                 properties:
                   errors:
                     type: string
+  "/api/v1/cosmonauts/export":
+    get:
+      summary: Exports cosmonauts
+      tags:
+      - Cosmonauts
+      responses:
+        '200':
+          description: success
+  "/api/v1/cosmonauts/import":
+    post:
+      summary: Imports cosmonauts
+      tags:
+      - Cosmonauts
+      parameters: []
+      responses:
+        '200':
+          description: success
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: file
+              required:
+              - file
 components:
   securitySchemes: {}
   schemas:
