@@ -1,0 +1,361 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/cosmonauts":
+    get:
+      summary: Returns list of the cosmonauts
+      tags:
+      - Cosmonauts
+      parameters:
+      - name: limit
+        in: query
+        description: Limit number of cosmonauts
+        required: false
+        schema:
+          type: number
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              example:
+                data:
+                - id: '1'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Dawna
+                    last_name: Block
+                    mental_endurance: Average
+                    physical_condition: Average
+                - id: '2'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Desmond
+                    last_name: Herzog
+                    mental_endurance: Below Average
+                    physical_condition: Below Average
+                - id: '3'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Raymon
+                    last_name: Runte
+                    mental_endurance: Above Average
+                    physical_condition: Above Average
+                - id: '4'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Lauren
+                    last_name: Gibson
+                    mental_endurance: Above Average
+                    physical_condition: Above Average
+                - id: '5'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Roger
+                    last_name: Romaguera
+                    mental_endurance: Above Average
+                    physical_condition: Above Average
+                - id: '6'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Jesse
+                    last_name: Smith
+                    mental_endurance: Above Average
+                    physical_condition: Above Average
+                - id: '7'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Deb
+                    last_name: Hintz
+                    mental_endurance: Below Average
+                    physical_condition: Below Average
+                - id: '8'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Robin
+                    last_name: Will
+                    mental_endurance: Below Average
+                    physical_condition: Below Average
+                - id: '9'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Jenice
+                    last_name: Schroeder
+                    mental_endurance: Above Average
+                    physical_condition: Above Average
+                - id: '10'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Florentina
+                    last_name: Maggio
+                    mental_endurance: Average
+                    physical_condition: Average
+                - id: '11'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Drew
+                    last_name: Stroman
+                    mental_endurance: Average
+                    physical_condition: Average
+                - id: '12'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Alana
+                    last_name: Prosacco
+                    mental_endurance: Above Average
+                    physical_condition: Above Average
+                - id: '13'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Marylee
+                    last_name: Raynor
+                    mental_endurance: Above Average
+                    physical_condition: Above Average
+                - id: '14'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Lon
+                    last_name: Farrell
+                    mental_endurance: Below Average
+                    physical_condition: Below Average
+                - id: '15'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Marhta
+                    last_name: Wisoky
+                    mental_endurance: Below Average
+                    physical_condition: Below Average
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      "$ref": "#/components/schemas/cosmonaut"
+    post:
+      summary: Creates cosmonaut
+      tags:
+      - Cosmonauts
+      parameters: []
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              example:
+                data:
+                  id: '1'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Dawna
+                    last_name: Block
+                    mental_endurance: Average
+                    physical_condition: Average
+              schema:
+                type: object
+                properties:
+                  data:
+                    "$ref": "#/components/schemas/cosmonaut"
+        '422':
+          description: unprocessable_entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      first_name:
+                        type: array
+                        items:
+                          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                physical_condition:
+                  type: string
+                mental_endurance:
+                  type: string
+              required:
+              - first_name
+              - last_name
+              - physical_condition
+              - mental_endurance
+  "/api/v1/cosmonauts/{id}":
+    get:
+      summary: Returns appropriate cosmonaut
+      tags:
+      - Cosmonauts
+      parameters:
+      - name: id
+        in: path
+        description: Cosmonaut ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              example:
+                data:
+                  id: '1'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Dawna
+                    last_name: Block
+                    mental_endurance: Average
+                    physical_condition: Average
+              schema:
+                type: object
+                properties:
+                  data:
+                    "$ref": "#/components/schemas/cosmonaut"
+        '404':
+          description: not_found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+    put:
+      summary: Updates appropriate cosmonaut
+      tags:
+      - Cosmonauts
+      parameters:
+      - name: id
+        in: path
+        description: Cosmonaut ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              example:
+                data:
+                  id: '1'
+                  type: cosmonaut
+                  attributes:
+                    first_name: Desmond
+                    last_name: Herzog
+                    mental_endurance: Below Average
+                    physical_condition: Below Average
+              schema:
+                type: object
+                properties:
+                  data:
+                    "$ref": "#/components/schemas/cosmonaut"
+        '422':
+          description: unprocessable_entity
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      first_name:
+                        type: array
+                        items:
+                          type: string
+        '404':
+          description: not_found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                physical_condition:
+                  type: string
+                mental_endurance:
+                  type: string
+    delete:
+      summary: Deletes appropriate cosmonaut
+      tags:
+      - Cosmonauts
+      parameters:
+      - name: id
+        in: path
+        description: Cosmonaut ID
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: no_content
+        '404':
+          description: not_found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: string
+components:
+  securitySchemes: {}
+  schemas:
+    cosmonaut:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        attributes:
+          type: object
+          properties:
+            first_name:
+              type: string
+            last_name:
+              type: string
+            mental_endurance:
+              type: string
+            physical_condition:
+              type: string
+          required:
+          - first_name
+          - last_name
+          - mental_endurance
+          - physical_condition
+      required:
+      - id
+      - type
+      - attributes
+servers:
+- url: "{scheme}://{host}"
+  variables:
+    scheme:
+      default: http
+    host:
+      default: localhost:3000

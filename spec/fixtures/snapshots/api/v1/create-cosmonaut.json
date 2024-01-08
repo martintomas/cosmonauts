@@ -1,0 +1,12 @@
+{
+  "data": {
+    "id": "1",
+    "type": "cosmonaut",
+    "attributes": {
+      "first_name": "Dawna",
+      "last_name": "Block",
+      "mental_endurance": "Average",
+      "physical_condition": "Average"
+    }
+  }
+}

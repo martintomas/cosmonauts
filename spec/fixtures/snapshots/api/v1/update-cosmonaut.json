@@ -1,0 +1,12 @@
+{
+  "data": {
+    "id": "1",
+    "type": "cosmonaut",
+    "attributes": {
+      "first_name": "Desmond",
+      "last_name": "Herzog",
+      "mental_endurance": "Below Average",
+      "physical_condition": "Below Average"
+    }
+  }
+}

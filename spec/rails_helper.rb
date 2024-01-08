@@ -29,11 +29,17 @@ begin
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
+
+Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each { |f| require f }
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
   ]
+  config.request_snapshots_dir = "spec/fixtures/snapshots"
+  config.request_snapshots_dynamic_attributes = %w[id]
+  config.include RequestHelpers, type: :request
   config.include FactoryBot::Syntax::Methods
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

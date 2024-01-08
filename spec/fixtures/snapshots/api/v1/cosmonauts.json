@@ -1,0 +1,154 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Dawna",
+        "last_name": "Block",
+        "mental_endurance": "Average",
+        "physical_condition": "Average"
+      }
+    },
+    {
+      "id": "2",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Desmond",
+        "last_name": "Herzog",
+        "mental_endurance": "Below Average",
+        "physical_condition": "Below Average"
+      }
+    },
+    {
+      "id": "3",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Raymon",
+        "last_name": "Runte",
+        "mental_endurance": "Above Average",
+        "physical_condition": "Above Average"
+      }
+    },
+    {
+      "id": "4",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Lauren",
+        "last_name": "Gibson",
+        "mental_endurance": "Above Average",
+        "physical_condition": "Above Average"
+      }
+    },
+    {
+      "id": "5",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Roger",
+        "last_name": "Romaguera",
+        "mental_endurance": "Above Average",
+        "physical_condition": "Above Average"
+      }
+    },
+    {
+      "id": "6",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Jesse",
+        "last_name": "Smith",
+        "mental_endurance": "Above Average",
+        "physical_condition": "Above Average"
+      }
+    },
+    {
+      "id": "7",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Deb",
+        "last_name": "Hintz",
+        "mental_endurance": "Below Average",
+        "physical_condition": "Below Average"
+      }
+    },
+    {
+      "id": "8",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Robin",
+        "last_name": "Will",
+        "mental_endurance": "Below Average",
+        "physical_condition": "Below Average"
+      }
+    },
+    {
+      "id": "9",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Jenice",
+        "last_name": "Schroeder",
+        "mental_endurance": "Above Average",
+        "physical_condition": "Above Average"
+      }
+    },
+    {
+      "id": "10",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Florentina",
+        "last_name": "Maggio",
+        "mental_endurance": "Average",
+        "physical_condition": "Average"
+      }
+    },
+    {
+      "id": "11",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Drew",
+        "last_name": "Stroman",
+        "mental_endurance": "Average",
+        "physical_condition": "Average"
+      }
+    },
+    {
+      "id": "12",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Alana",
+        "last_name": "Prosacco",
+        "mental_endurance": "Above Average",
+        "physical_condition": "Above Average"
+      }
+    },
+    {
+      "id": "13",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Marylee",
+        "last_name": "Raynor",
+        "mental_endurance": "Above Average",
+        "physical_condition": "Above Average"
+      }
+    },
+    {
+      "id": "14",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Lon",
+        "last_name": "Farrell",
+        "mental_endurance": "Below Average",
+        "physical_condition": "Below Average"
+      }
+    },
+    {
+      "id": "15",
+      "type": "cosmonaut",
+      "attributes": {
+        "first_name": "Marhta",
+        "last_name": "Wisoky",
+        "mental_endurance": "Below Average",
+        "physical_condition": "Below Average"
+      }
+    }
+  ]
+}
