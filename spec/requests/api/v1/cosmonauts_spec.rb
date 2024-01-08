@@ -213,15 +213,15 @@ RSpec.describe "API V1 Cosmonauts", type: :request do
   path "/api/v1/cosmonauts/import" do
     post "Imports cosmonauts" do
       tags "Cosmonauts"
-      consumes 'multipart/form-data'
-      produces 'application/json'
+      consumes "multipart/form-data"
+      produces "application/json"
       parameter name: :cosmonauts, in: :formData, schema: {
         type: :object,
-        properties: { file: { type: :file } },
+        properties: {file: {type: :file}},
         required: ["file"]
       }
 
-      let(:cosmonauts) { { file: fixture_file_upload("cosmonauts.xml") } }
+      let(:cosmonauts) { {file: fixture_file_upload("cosmonauts.xml")} }
 
       response "200", :success do
         run_test!

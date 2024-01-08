@@ -20,8 +20,7 @@ RSpec.configure do |config|
       },
       paths: {},
       components: {
-        securitySchemes: {
-        },
+        securitySchemes: {},
         schemas: {
           cosmonaut: {
             type: :object,
@@ -37,10 +36,10 @@ RSpec.configure do |config|
                   physical_condition: {type: :string}
                 },
                 required: %w[first_name last_name mental_endurance physical_condition]
-              },
+              }
             },
             required: %w[id type attributes]
-          },
+          }
         }
       },
       servers: [

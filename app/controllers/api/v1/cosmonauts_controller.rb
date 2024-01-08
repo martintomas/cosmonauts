@@ -43,8 +43,8 @@ module API
         tempfile = (params[:file] || params[:cosmonauts][:file]).tempfile # maybe it would be more memory efficient to use request.env['rack.input'] stream directly instead of tempfile
         records = []
         Nokogiri::XML::Reader(tempfile).each do |node|
-          if node.name == 'cosmonaut' && node.node_type == Nokogiri::XML::Reader::TYPE_ELEMENT
-            inner_xml = Nokogiri::XML(node.outer_xml).at('./cosmonaut')
+          if node.name == "cosmonaut" && node.node_type == Nokogiri::XML::Reader::TYPE_ELEMENT
+            inner_xml = Nokogiri::XML(node.outer_xml).at("./cosmonaut")
             records << {
               id: inner_xml.at("./id").content,
               first_name: inner_xml.at("./first_name").content,
@@ -64,22 +64,22 @@ module API
       end
 
       def export
-        response.headers['Content-Type'] = 'application/xml'
-        response.headers['Content-Disposition'] = 'attachment; filename=cosmonauts.xml'
+        response.headers["Content-Type"] = "application/xml"
+        response.headers["Content-Disposition"] = "attachment; filename=cosmonauts.xml"
 
         self.response_body = Enumerator.new do |yielder|
           yielder << '<?xml version="1.0" encoding="UTF-8"?>'
-          yielder << '<cosmonauts>'
+          yielder << "<cosmonauts>"
           Cosmonaut.find_each(batch_size: 500) do |cosmonaut|
-            yielder << '<cosmonaut>'
+            yielder << "<cosmonaut>"
             yielder << "<id>#{cosmonaut.id}</id>"
             yielder << "<first_name>#{cosmonaut.first_name}</first_name>"
             yielder << "<last_name>#{cosmonaut.last_name}</last_name>"
             yielder << "<physical_condition>#{cosmonaut.physical_condition}</physical_condition>"
             yielder << "<mental_endurance>#{cosmonaut.mental_endurance}</mental_endurance>"
-            yielder << '</cosmonaut>'
+            yielder << "</cosmonaut>"
           end
-          yielder << '</cosmonauts>'
+          yielder << "</cosmonauts>"
         end
       end
 

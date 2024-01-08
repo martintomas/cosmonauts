@@ -24,7 +24,7 @@ gem "puma", ">= 5.0"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "tzinfo-data", platforms: %i[windows jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -37,11 +37,12 @@ gem "bootsnap", require: false
 
 gem "jsonapi-serializer"
 gem "rswag"
+gem "standard"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ]
-  gem 'rspec-rails'
+  gem "debug", platforms: %i[mri windows]
+  gem "rspec-rails"
 end
 
 group :development do
@@ -50,11 +51,10 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-collection_matchers'
-  gem 'factory_bot_rails'
-  gem 'faker'
+  gem "rspec-collection_matchers"
+  gem "factory_bot_rails"
+  gem "faker"
   gem "rspec-request_snapshot"
   gem "rswag-specs"
   gem "webmock"
 end
-

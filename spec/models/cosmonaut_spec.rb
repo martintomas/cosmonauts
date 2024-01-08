@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Cosmonaut, type: :model do
   subject { build(:cosmonaut) }
